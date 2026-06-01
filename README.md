@@ -4,7 +4,7 @@ Find crossword answers where **removing letters from a word leaves another real 
 
 For example, deleting **RA** from **CARAMEL** gives **CAMEL**.
 
-The key strength of this tool: it doesn't just find words that *contain* your pattern — it checks the result against the same dictionary to confirm the leftover is also a real word.
+This is an effective tool since it has a feedback loop checking whether the word post-deletion is a valid one by referring back to your own dictionary or text file.
 
 ---
 
