@@ -33,7 +33,7 @@ Scored .dict files (CrossFire / Crossword Compiler format):
 
 Examples:
   # All RA-containing words from a plain-text list (NORA theme):
-  python deletion_theme.py --pattern RA --find enable.txt
+  python deletion_theme.py --pattern RA --find example_dictionary.txt
 
   # Same search using a scored CrossFire .dict file:
   python deletion_theme.py --pattern RA --find wordlist.dict
@@ -42,20 +42,20 @@ Examples:
   python deletion_theme.py --pattern RA --find wordlist.dict --min-score 50
 
   # Mix a scored .dict file with a plain-text list:
-  python deletion_theme.py --pattern RA --find wordlist.dict enable.txt --min-score 50
+  python deletion_theme.py --pattern RA --find wordlist.dict example_dictionary.txt --min-score 50
 
   # Any double-letter deletion (SSTRESS -> STRESS):
-  python deletion_theme.py --pattern "(.)\1" --find enable.txt --show-deletion-result
+  python deletion_theme.py --pattern "(.)\1" --find example_dictionary.txt --show-deletion-result
 
   # Words where deleting a vowel pair leaves a real word:
-  python deletion_theme.py --pattern "[AEIOU]{2}" --find enable.txt --show-deletion-result
+  python deletion_theme.py --pattern "[AEIOU]{2}" --find example_dictionary.txt --show-deletion-result
 
   # Validate a candidate phrase list:
-  python deletion_theme.py --pattern RA --validate phrases.txt enable.txt --show-deletion-result
+  python deletion_theme.py --pattern RA --validate phrases.txt example_dictionary.txt --show-deletion-result
 
   # Chain: find then validate:
-  python deletion_theme.py --pattern RA --find enable.txt | \
-      python deletion_theme.py --pattern RA --validate - enable.txt --show-deletion-result
+  python deletion_theme.py --pattern RA --find example_dictionary.txt | \
+      python deletion_theme.py --pattern RA --validate - example_dictionary.txt --show-deletion-result
 """
 
 import re
