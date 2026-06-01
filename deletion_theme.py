@@ -229,6 +229,11 @@ def main():
     parser.add_argument('--show-deletion-result', action='store_true',
                         dest='show_result',
                         help='Print  ORIGINAL  ->  RESULT  pairs.')
+    parser.add_argument('--valid-only', action='store_true',
+                        dest='valid_only',
+                        help='Only print words that have at least one valid deletion. '
+                             'Suppresses "(no valid deletion)" lines. '
+                             'Implied when --show-deletion-result is not set.')
     parser.add_argument('--all', dest='show_all', action='store_true',
                         help='Show every valid deletion per entry, not just the first.')
 
@@ -248,15 +253,18 @@ def main():
             and len(w) >= args.min_len
             and (args.exact_len is None or len(w) == args.exact_len)
         ):
-            if args.show_result:
+            if args.show_result or args.valid_only:
                 results = validate_phrase(word, pattern, valid_words,
                                           min_result=args.min_result,
                                           result_len=args.result_len,
                                           show_all=args.show_all)
                 if results:
-                    for result in results:
-                        print(f'{word}  ->  {result}')
-                else:
+                    if args.show_result:
+                        for result in results:
+                            print(f'{word}  ->  {result}')
+                    else:
+                        print(word)
+                elif not args.valid_only:
                     print(f'{word}  ->  (no valid deletion)')
             else:
                 print(word)

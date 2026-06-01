@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(python -c ' *)",
+      "Bash(python deletion_theme.py --help)",
+      "Bash(python deletion_theme.py --pattern RA --find \"C:\\\\Users\\\\Stephen\\\\Downloads\\\\spreadthewordlist_caps.dict\" --min-score 50 --show-deletion-result)",
+      "Bash(findstr /V \"no valid deletion\")",
+      "Bash(Select-String -NotMatch \"no valid deletion\")",
+      "Bash(Select-Object -First 60)",
+      "Bash(python deletion_theme.py --pattern RA --find example_dictionary.txt --valid-only --min-len 6)",
+      "Bash(python deletion_theme.py --pattern RA --find example_dictionary.txt --valid-only --show-deletion-result --min-len 6)"
+    ]
+  }
+}
